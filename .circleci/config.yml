@@ -13,7 +13,7 @@ x-aliases:
     requires:
       - shellcheck/check
     registry: $DOCKER_REGISTRY
-    image: $CIRCLE_PROJECT_USERNAME/prettier
+    image: $DOCKER_IMAGE
     after_build:
       - run:
           name: Test generated image
