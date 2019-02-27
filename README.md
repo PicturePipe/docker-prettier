@@ -15,13 +15,15 @@ docker pull quay.io/picturepipe/prettier
 
 ## Tags
 
+The current released version is tagged `1.16.4`.
+
+The latest development version is tagged as `latest`.
+
 The releases will follow the upstream version, with an optional dash and number appended, if there
-are new releases.
+are multiple releases per upstream version.
 
 So for example, the first release for upstream version `1.16.4` will be tagged `1.16.4`. If there
 is a second release for this upstream version, it will be tagged `1.16.4-1`.
-
-The latest development version is tagged as `latest`.
 
 ## License
 
