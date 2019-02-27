@@ -1,0 +1,66 @@
+version: 2.1
+orbs:
+  docker-publish: circleci/docker-publish@0.1.6
+  shellcheck: circleci/shellcheck@1.3.3
+
+executors:
+  shellcheck-circleci:
+    docker:
+      - image: quay.io/cfra/shellcheck-circleci:2019.02.22.1
+
+x-aliases:
+  docker-publish-args: &docker-publish-args
+    requires:
+      - shellcheck/check
+    registry: $DOCKER_REGISTRY
+    image: $CIRCLE_PROJECT_USERNAME/prettier
+    after_build:
+      - run:
+          name: Test generated image
+          command: ./test.sh
+  filter-only-develop: &filter-only-develop
+    filters:
+      branches:
+        only:
+          - develop
+  filter-except-develop: &filter-except-develop
+    filters:
+      branches:
+        ignore:
+          - develop
+  filter-only-tagged: &filter-only-tagged
+    filters:
+      branches:
+        ignore:
+          - /.*/
+      tags:
+        only:
+          - /.*/
+  filter-branch-or-tagged: &filter-branch-or-tagged
+    filters:
+      tags:
+        only:
+          - /.*/
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - shellcheck/check:
+          executor: shellcheck-circleci
+          <<: *filter-branch-or-tagged
+      - docker-publish/publish:
+          name: docker-build-branch
+          <<: *docker-publish-args
+          <<: *filter-except-develop
+          deploy: false
+      - docker-publish/publish:
+          name: docker-build-and-publish-develop
+          <<: *docker-publish-args
+          <<: *filter-only-develop
+          tag: latest
+      - docker-publish/publish:
+          name: docker-build-and-publish-release
+          <<: *docker-publish-args
+          <<: *filter-only-tagged
+          tag: $CIRCLE_TAG
