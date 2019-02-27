@@ -43,6 +43,8 @@ else
 	echo "==> Prettier complained as expected." >&2
 fi
 
+# We do not want to expand the following backticks
+# shellcheck disable=SC2016
 echo '==> Cleaning up files with `prettier --write`...' >&2
 "${DOCKER_CMD[@]}" prettier --write 'tests/**'
 
