@@ -6,10 +6,10 @@ ENV PATH $PATH:$NODE_DIR/node_modules/.bin
 
 # Install git and openssh-client for CircleCI
 RUN apk add \
-	--no-cache \
-	--no-progress \
-	--update \
-	git openssh-client
+    --no-cache \
+    --no-progress \
+    --update \
+    git openssh-client
 
 USER 1000
 
