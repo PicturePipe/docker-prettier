@@ -2,7 +2,6 @@
 
 [![CircleCI Build](https://circleci.com/gh/PicturePipe/docker-prettier.svg?style=shield)](https://circleci.com/gh/PicturePipe/workflows/docker-prettier "CircleCI Build")
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/ "Renovate enabled")
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [Docker](https://www.docker.com) image with [Prettier](https://prettier.io/)
 preinstalled.
