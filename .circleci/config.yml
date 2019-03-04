@@ -6,7 +6,7 @@ orbs:
 executors:
   shellcheck-circleci:
     docker:
-      - image: quay.io/cfra/shellcheck-circleci:2019.02.22.1
+      - image: quay.io/cfra/shellcheck-circleci:2019.02.27.1
 
 x-aliases:
   docker-publish-args: &docker-publish-args
