@@ -3,11 +3,6 @@ orbs:
   docker-publish: circleci/docker-publish@0.1.6
   shellcheck: circleci/shellcheck@1.3.3
 
-executors:
-  shellcheck-circleci:
-    docker:
-      - image: quay.io/cfra/shellcheck-circleci:2019.02.22.1
-
 x-aliases:
   docker-publish-args: &docker-publish-args
     requires:
@@ -47,8 +42,16 @@ workflows:
   build:
     jobs:
       - shellcheck/check:
-          executor: shellcheck-circleci
           <<: *filter-branch-or-tagged
+          pre-steps:
+            - run:
+                name: "Install git and SSH client"
+                command: |
+                  apk add \
+                      --update-cache \
+                      --no-progress \
+                      git \
+                      openssh-client
       - docker-publish/publish:
           name: docker-build-branch
           <<: *docker-publish-args
