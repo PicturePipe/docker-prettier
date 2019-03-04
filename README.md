@@ -1,6 +1,7 @@
 # Docker Image with Prettier
 
 [![CircleCI Build](https://circleci.com/gh/PicturePipe/docker-prettier.svg?style=shield)](https://circleci.com/gh/PicturePipe/workflows/docker-prettier "CircleCI Build")
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/ "Renovate enabled")
 
 [Docker](https://www.docker.com) image with [Prettier](https://prettier.io/)
 preinstalled.
@@ -15,7 +16,7 @@ docker pull quay.io/picturepipe/prettier
 
 ## Tags
 
-The current released version is tagged `1.16.4`.
+The current released version is tagged `1.16.4-1`.
 
 The latest development version is tagged as `latest`.
 

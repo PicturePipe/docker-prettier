@@ -1,4 +1,4 @@
-FROM node:10.15.1-alpine@sha256:0cbb2f7bbc8e7c3a519fa05263cea700324f627369bd44c0a42f8da275179e19
+FROM node:10.15.2-alpine@sha256:8ac058c7735e957c455dea33bce69c90e3dd83793e0c8ef6f8d73d6a894980c3
 
 ENV APP_DIR /home/node/app
 ENV NODE_DIR /home/node/node_modules/app
@@ -6,10 +6,10 @@ ENV PATH $PATH:$NODE_DIR/node_modules/.bin
 
 # Install git and openssh-client for CircleCI
 RUN apk add \
-	--no-cache \
-	--no-progress \
-	--update \
-	git openssh-client
+    --no-cache \
+    --no-progress \
+    --update \
+    git openssh-client
 
 USER 1000
 
