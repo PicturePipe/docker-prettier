@@ -48,7 +48,7 @@ workflows:
                 name: "Install git and SSH client"
                 command: |
                   apk add \
-                      --update \
+                      --update-cache \
                       --no-progress \
                       git \
                       openssh-client
