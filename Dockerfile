@@ -1,4 +1,4 @@
-FROM node:10.15.3-alpine@sha256:ba16cd89f8fc37ffc3d25180fb83539b4a4b043a8c80463732010d36b93e1f16
+FROM node:10.15.3-alpine@sha256:b85a3b0ef76f5543b3f467e8a25694e72594d2c2bfcf140fa584d4f40ace4130
 
 ENV APP_DIR /home/node/app
 ENV NODE_DIR /home/node/node_modules/app
