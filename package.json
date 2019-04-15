@@ -13,7 +13,7 @@
     "url": "https://github.com/PicturePipe/docker-prettier/issues"
   },
   "homepage": "https://github.com/PicturePipe/docker-prettier#readme",
-  "devDependencies": {
-    "prettier": "1.16.4"
+  "dependencies": {
+    "prettier": "1.17.0"
   }
 }
