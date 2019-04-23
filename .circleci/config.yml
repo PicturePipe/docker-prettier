@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   docker-publish: circleci/docker-publish@0.1.6
-  shellcheck: circleci/shellcheck@1.3.8
+  shellcheck: circleci/shellcheck@1.3.9
 
 x-aliases:
   docker-publish-args: &docker-publish-args
