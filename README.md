@@ -16,7 +16,7 @@ docker pull quay.io/picturepipe/prettier
 
 ## Tags
 
-The current released version is tagged `1.17.0-1`.
+The current released version is tagged `1.17.0-2`.
 
 The latest development version is tagged as `latest`.
 
