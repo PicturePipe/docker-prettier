@@ -18,11 +18,17 @@ x-aliases:
       branches:
         only:
           - develop
-  filter-except-develop: &filter-except-develop
+  filter-only-master: &filter-only-master
+    filters:
+      branches:
+        only:
+          - master
+  filter-except-main: &filter-except-main
     filters:
       branches:
         ignore:
           - develop
+          - master
   filter-only-tagged: &filter-only-tagged
     filters:
       branches:
@@ -55,12 +61,17 @@ workflows:
       - docker-publish/publish:
           name: docker-build-branch
           <<: *docker-publish-args
-          <<: *filter-except-develop
+          <<: *filter-except-main
           deploy: false
       - docker-publish/publish:
           name: docker-build-and-publish-develop
           <<: *docker-publish-args
           <<: *filter-only-develop
+          tag: edge
+      - docker-publish/publish:
+          name: docker-build-and-publish-master
+          <<: *docker-publish-args
+          <<: *filter-only-master
           tag: latest
       - docker-publish/publish:
           name: docker-build-and-publish-release
