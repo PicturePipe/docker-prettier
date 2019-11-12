@@ -5,7 +5,11 @@ ENV NODE_DIR /home/node/node_modules/app
 ENV PATH $PATH:$NODE_DIR/node_modules/.bin
 
 # Install git and openssh-client for CircleCI
-RUN apk add \
+RUN apk upgrade \
+    --no-cache \
+    --no-progress \
+    --update \
+    && apk add \
     --no-cache \
     --no-progress \
     --update \
